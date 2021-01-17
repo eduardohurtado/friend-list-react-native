@@ -1,21 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+// Screens
+import CreateFriend from "./screens/CreateFriend";
+import FriendDetails from "./screens/FriendDetails";
+import FriendList from "./screens/FriendList";
+
+// Stack navigator
+const Stack = createStackNavigator();
+
+// Screens for my App
+function MyStack() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen
+                name="FriendListScreen"
+                component={FriendList}
+                options={{ title: "My Friends List" }}
+            />
+            <Stack.Screen
+                name="CreateFriendScreen"
+                component={CreateFriend}
+                options={{ title: "Create a New Friend" }}
+            />
+            <Stack.Screen
+                name="FriendDetailsScreen"
+                component={FriendDetails}
+                options={{ title: "Friend Details" }}
+            />
+        </Stack.Navigator>
+    );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+    return (
+        <NavigationContainer>
+            <MyStack />
+        </NavigationContainer>
+    );
+}
