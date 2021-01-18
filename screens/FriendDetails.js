@@ -134,7 +134,7 @@ export default function FriendDetails(props) {
                     />
                 </View>
 
-                <View>
+                <View marginBottom={10}>
                     <Button
                         title="Update Friend"
                         color="#19ac52"
@@ -142,7 +142,7 @@ export default function FriendDetails(props) {
                     />
                 </View>
 
-                <View>
+                <View marginBottom={10}>
                     <Button
                         title="Delete Friend"
                         color="#e37399"
